@@ -54,9 +54,3 @@ mysql --user=root --password="$MYSQL_ROOT_PASSWORD" -e "create database $SPEEDCO
 #Creating the user profile that is going to be used by the POC on mysql-server and enabling connections from anywhere with its credentials
 mysql --user=root --password="$MYSQL_ROOT_PASSWORD" -e "create user '$MYSQL_SPEEDCOLLAB_USER_NAME'@'%' identified by '$MYSQL_SPEEDCOLLAB_USER_PASSWORD'; grant all privileges on $SPEEDCOLLAB_DB_NAME.* to '$MYSQL_SPEEDCOLLAB_USER_NAME';"
 service mysql restart
-
-
-
-
-
-
