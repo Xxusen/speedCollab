@@ -1,0 +1,109 @@
+::-ms-reveal {
+    display: none;
+}
+::-ms-clear {
+    display: none;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+body{
+	margin: 0;
+	text-align: center;
+	font-family: Noto Sans,sans-serif;
+	background-image: url('../img/landing-bg.jpg');
+	background-size: cover;
+}
+body:before{
+	content:"";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+#main {
+	position: relative;
+	display: inline-block;
+	text-transform: uppercase;
+	width:	500px;
+	vertical-align: middle;
+}
+
+form{
+	color: white;
+	padding-top: 52px;
+	background-color: #32b4e6;
+	border: 1px solid #65c7ec;
+	border-radius: 0 0 2px 2px;
+}
+
+.header{
+	display: block;
+	line-height: 52px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #919294;
+	text-align: left;
+	padding-left: 48px;
+	background-image: url('../img/lock-icon.png');
+	background-repeat: no-repeat;
+	background-position: 25px 16px;
+	background-color: white;
+	border: 1px dashed rgb(210,210,210);
+	border-bottom: 0;
+	box-sizing: border-box;
+}
+
+.fieldsCtr, .buttonsCtr{
+	width: 355px;
+	margin: 0 auto;
+}
+.fieldsCtr{
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 16px;
+}
+label {
+	display: inline-block;
+	margin-bottom: 6px;
+}
+input:not([type=submit]):not([type=button]){
+	width: 354px;
+	height: 48px;
+	color: white;
+	margin-bottom: 16px;
+	box-sizing: border-box;
+	padding: 0 16px 0 16px;
+	background-color: #5bc3eb;
+	border: 0;
+	border-radius: 3px;
+	outline: none;
+}
+input:not([type=submit]):not([type=button]):hover{background-color: #84d2f0;}
+input:not([type=submit]):not([type=button]):focus{background-color: #70cbee;}
+
+.buttonsCtr{
+	height: 48px;
+	margin-bottom: 32px;
+}
+.flatButton{
+	display: inline-block;
+	font-weight: bold;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	padding: 0 24px;
+	line-height: 48px;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	background-color: transparent;
+}
+.flatButton:hover{background-color: #5bc3eb;}
+.flatButton:first-child{float:left; opacity: 0.8;}
+.flatButton:last-child{float:right;}
+
+.hidden{ 
+	display: none;
+}

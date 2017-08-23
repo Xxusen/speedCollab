@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Authentication</title>
+	<link rel="stylesheet" href="css/auth.css">
+	
+	<script src="js/extension.js"></script>
+	<script src="js/lib.js"></script>
+	<script src="js/visualEffects.js"></script>
+	<script type="text/javascript">
+	window.addEventListener("load", function() {
+		fadeIn(document.querySelector("#main"), 250);
+		
+		var switchers = document.querySelectorAll("input[type=button]");
+		//hidding the last (second) form
+		switchers[switchers.length -1].form.addClass("hidden");
+		//defining the behaviour associated when click event occurs on one of the switchers
+		for(var i=0; i < switchers.length; i++) {
+			switchers[i].addEventListener("click", switchForm);
+		}
+		//submit buttons behaviour definition
+		var submitButtons = document.querySelectorAll(".submit");
+		for(var i=0; i < submitButtons.length; i++) {
+			var button = submitButtons[i];
+			button.addEventListener("click", submitForm);
+		}
+
+		//handlers
+		function switchForm(e) {
+			var button = e.target;
+			button.removeEventListener("click", this);
+			var toHide = button.form;
+			var toShow = document.querySelector(".hidden");
+			toHide.addClass("hidden");
+			toShow.removeClass("hidden");
+			button.form.reset();
+			button.addEventListener("click", this);
+		}
+		function submitForm(e) {
+
+		}
+	});
+	</script>
+</head>
+<body>
+	<div id="main" style="opacity: 0">
+ 		<span class="header">sign in with username & password</span>
+ 		<form>
+			<div class="fieldsCtr">
+				<label for="emailsi">e-mail address</label>
+				<input type="email" id="emailsi" required>
+				<label for="passwordsi">password</label>
+				<script>createReviewablePwdField({name : 'password', id: "passwordsi"},true)</script>
+			</div>
+			<div class="buttonsCtr">
+				<input type="button" value="new account" class="flatButton">  
+				<input type="submit" value="sign in" class="flatButton">
+			</div>
+		</form>
+		<form>
+			<div class="fieldsCtr">
+				<label for="name">name</label>
+				<input type="text" id="name" required>
+				<label for="firstname">firstname</label>
+				<input type="text" id="firstname" required>
+				<label for="email">e-mail address</label>
+				<input type="email" id="email" required>
+				<label for="passwordsu">password</label>
+				<script>createReviewablePwdField({name : 'password', id: "passwordsu"},true)</script>
+			</div>
+			<div class="buttonsCtr">
+				<input type="button" value="cancel" class="flatButton">
+				<input type="submit" value="sign up" class="flatButton">
+			</div>
+		</form>
+		</div>
+	</div>
+</body>
+</html>
