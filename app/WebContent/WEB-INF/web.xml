@@ -15,4 +15,13 @@
 		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/speedCollab</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>sandbox</servlet-name>
+		<servlet-class>tests.Sandbox</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sandbox</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
 </web-app>
