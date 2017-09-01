@@ -1,4 +1,4 @@
-USE database_name;
+USE speedCollab_db;
 create table user(
     iduser      int             not null    auto_increment,
     name        varchar(50)     not null,
