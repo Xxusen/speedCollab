@@ -1,4 +1,4 @@
-package db.connections;
+package db.connection;
 
 public enum Datasource {
 	GRAPH("gds"),

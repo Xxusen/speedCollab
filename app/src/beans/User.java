@@ -8,7 +8,7 @@ package beans;
  *
  */
 public class User {
-	Integer id;
+	Long id;
 	String name;
 	String firstName;
 	String email;
@@ -22,7 +22,7 @@ public class User {
 		this.password 	= password; 
 	}
 	
-	public User(int id, String name, String firstName, String email) {
+	public User(long id, String name, String firstName, String email) {
 		this.id			= id;
 		this.name		= name;
 		this.firstName	= firstName;
@@ -37,14 +37,14 @@ public class User {
 	}
 	
 	//Getters
-	public Integer getId() { return id;	}
+	public Long getId() { return id;	}
 	public String getName() { return name; }
 	public String getFirstName() { return firstName; }
 	public String getEmail() { return email; }
 	public String getPassword() { return password; }
 	
 	//Setters
-	public void setId(Integer id) { this.id = id; }
+	public void setId(Long id) { this.id = id; }
 	public void setName(String name) { this.name = name; }
 	public void setFirstName(String firstName) { this.firstName = firstName; }
 	public void setEmail(String email) { this.email = email; }

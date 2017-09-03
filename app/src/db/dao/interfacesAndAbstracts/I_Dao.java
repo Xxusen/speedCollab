@@ -3,13 +3,17 @@
  */
 package db.dao.interfacesAndAbstracts;
 
-import java.util.List;
+
+import java.sql.SQLException;
 
 /**
  * @author HADANAHM
  *
  */
-public interface IDao<T> {
+
+import java.util.List;
+
+public interface I_Dao<T> {
 	
 	/**
 	* Creates an object from record retrieved with the given id
@@ -23,9 +27,9 @@ public interface IDao<T> {
 	* Creates a list of objects made of the records of a type/table matching provided criterias in db
 	* @param 	bean : bean olding the criterias
 	* @return	created list
-	* @throws	
+	* @throws SQLException 	
 	*/
-	public abstract List<T> findByCriteria(T bean);
+	public abstract List<T> findByCriteria(T bean) throws SQLException;
 	
 	/**
 	* Creates a list objects made from all records from a type/table in db

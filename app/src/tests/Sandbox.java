@@ -8,12 +8,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.connections.Datasource;
-import db.connections.DbsConnections;
+import beans.User;
+import db.connection.ConnectionProvider;
+import db.connection.Datasource;
+import db.dao.implementations.UserDao;
 
 public class Sandbox extends HttpServlet {
 	/**
@@ -24,16 +29,27 @@ public class Sandbox extends HttpServlet {
 	public void doProcess(HttpServletRequest req, HttpServletResponse res) { 
 		// test with mysql server
 		try {
-			Connection con = DbsConnections.getConnection(Datasource.RELATIONAL);
+			User user = new User("admin@speedCollab", "password");
+			User retrieved = null;
+			UserDao udao = new UserDao();
+			List<User> lu = udao.findByCriteria(user);
+			Iterator<User> it = lu.iterator();
+			while(it.hasNext()) {
+				retrieved = it.next();
+			}
+			System.out.println("Nous avons récupéré "+lu.size()+" users, et le dernier s'appelle "+lu.get(lu.size()-1).getName());
+		
+			Connection con = ConnectionProvider.getConnection(Datasource.RELATIONAL);
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from user");
 			String result = "";
 			while (rs.next()) {
-				result += "\n" + rs.getInt("iduser");
+				result += "\n" + rs.getInt("id");
 				result += rs.getString("name");
 				result += rs.getString("firstname");
 				result += rs.getString("email");
 			}
+
 			res.getWriter().print(result);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -43,21 +59,21 @@ public class Sandbox extends HttpServlet {
 			e.printStackTrace();
 		}
 
-//		try {
-//			Connection connection = DbsConnections.getConnection(Datasource.GRAPH);
-//			String query = "MATCH (n:Movie) RETURN n";
-//			PreparedStatement stmt = connection.prepareStatement(query);
-//			ResultSet rs = stmt.executeQuery();
-//			int i = 0;
-//			while (rs.next()) {
-//				HashMap a = (HashMap) rs.getObject("n");
-//				System.out.println(i++);
-//				System.out.println(a.get("title"));
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			Connection connection = ConnectionProvider.getConnection(Datasource.GRAPH);
+			String query = "MATCH (n:Movie) RETURN n";
+			PreparedStatement stmt = connection.prepareStatement(query);
+			ResultSet rs = stmt.executeQuery();
+			int i = 0;
+			while (rs.next()) {
+				HashMap a = (HashMap) rs.getObject("n");
+				System.out.println(i++);
+				System.out.println(a.get("title"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {

@@ -1,12 +1,7 @@
 /**
  * 
  */
-package db.connections;
-
-/**
- * @author HADANAHM
- *
- */
+package db.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,11 +10,15 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class DbsConnections {
+/**
+ * @author HADANAHM
+ *
+ */
+public class ConnectionProvider {
 
 	
 	// making the default constructor private so this class cannot be instantiated
-	private DbsConnections() {}
+	private ConnectionProvider() {}
 	
 	
 	/**

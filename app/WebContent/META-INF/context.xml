@@ -25,8 +25,21 @@
     <!--
     <Manager pathname="" />
     -->
-    <Resource name="rds" auth="Container" type="javax.sql.DataSource" username="sc_user" password="password"
-    	driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/speedCollab_db" />
-   	<Resource name="gds" auth="Container" type="javax.sql.DataSource" username="neo4j" password="password"
-    	driverClassName="org.neo4j.jdbc.Driver" url="jdbc:neo4j:bolt://localhost/" />
+    <Resource 
+    	name="rds"
+    	auth="Container"
+    	type="javax.sql.DataSource"
+    	username="sc_user" password="password"
+    	driverClassName="com.mysql.jdbc.Driver"
+    	url="jdbc:mysql://localhost:3306/speedCollab_db"
+   	/>
+    	
+   	<Resource
+	   	name="gds"
+	   	auth="Container"
+	   	type="javax.sql.DataSource"
+	   	username="neo4j" password="password"
+	   	driverClassName="org.neo4j.jdbc.Driver"
+	   	url="jdbc:neo4j:bolt://localhost/"
+   	/>
 </Context>
