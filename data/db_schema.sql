@@ -9,5 +9,6 @@ create table user(
     primary key (id)
 );
 
+
 insert into user values(default, 'adan', 'hussen','xusen@protonmail.com', 'redone' );
 insert into user values(default, 'admin', '-', 'admin@speedCollab', 'password');
